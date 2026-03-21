@@ -6,6 +6,11 @@ const folderSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  type: {
+    type: String,
+    enum: ['image', 'video'],
+    default: 'image'
+  },
   coverImage: {
     type: String,
     required: true,

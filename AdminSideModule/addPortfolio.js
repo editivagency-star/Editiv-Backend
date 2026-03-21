@@ -4,7 +4,7 @@ const streamifier = require("streamifier");
 
 module.exports = async (req, res) => {
   try {
-    const { title, description, folderId } = req.body;
+    const { title, description, folderId, driveLink } = req.body;
 
     if (!req.file) {
       return res.status(400).json({ error: "Image required" });
@@ -29,6 +29,7 @@ module.exports = async (req, res) => {
       title,
       description,
       folderId,
+      driveLink,
       image: result.secure_url,
     });
 

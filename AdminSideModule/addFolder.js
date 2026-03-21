@@ -4,7 +4,7 @@ const streamifier = require("streamifier");
 
 module.exports = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, type } = req.body;
 
     if (!req.file) {
       return res.status(400).json({ error: "Image file is required" });
@@ -27,6 +27,7 @@ module.exports = async (req, res) => {
 
     const folder = await Folder.create({
       name,
+      type: type || 'image',
       coverImage: result.secure_url,
     });
 

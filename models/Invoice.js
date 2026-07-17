@@ -16,6 +16,10 @@ const invoiceSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    serviceType: {
+      type: String,
+      default: "Social Media Marketing",
+    },
     client: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Client",

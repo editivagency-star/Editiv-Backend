@@ -5,6 +5,7 @@ module.exports = async (req, res) => {
     const {
       invoiceNumber,
       type,
+      serviceType,
       date,
       client,
       clientName,
@@ -62,6 +63,7 @@ module.exports = async (req, res) => {
       {
         invoiceNumber,
         type,
+        serviceType: serviceType || "Social Media Marketing",
         date: date || new Date(),
         client: client || null,
         clientName,

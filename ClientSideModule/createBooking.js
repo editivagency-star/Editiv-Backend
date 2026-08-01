@@ -21,11 +21,11 @@ module.exports = async (req, res) => {
     // ── Email to ADMIN ──────────────────────────────────────────────
     await sendEmail({
       to: process.env.ADMIN_EMAIL,
-      subject: "📩 New Contact Form Submission — EditIV",
+      subject: "📩 New Contact Form Submission — EDiTiV",
       html: `
         <div style="font-family:sans-serif;background:#0a0a0a;color:#fff;padding:40px;border-radius:12px;max-width:600px;margin:0 auto">
           <div style="text-align:center;margin-bottom:30px">
-            <h1 style="color:#00ff9c;font-size:28px;margin:0">EditIV</h1>
+            <h1 style="color:#00ff9c;font-size:28px;margin:0">EDiTiV</h1>
             <p style="color:#888;font-size:13px;margin:4px 0 0">New Contact Form Submission</p>
           </div>
           <div style="background:#111;border:1px solid #1a1a1a;border-radius:10px;padding:28px">
@@ -59,17 +59,17 @@ module.exports = async (req, res) => {
     // ── Confirmation email to USER ──────────────────────────────────
     await sendEmail({
       to: email,
-      subject: "We got your message — EditIV 🎬",
+      subject: "We got your message — EDiTiV 🎬",
       html: `
         <div style="font-family:sans-serif;background:#0a0a0a;color:#fff;padding:40px;border-radius:12px;max-width:600px;margin:0 auto">
           <div style="text-align:center;margin-bottom:30px">
-            <h1 style="color:#00ff9c;font-size:28px;margin:0">EditIV</h1>
+            <h1 style="color:#00ff9c;font-size:28px;margin:0">EDiTiV</h1>
             <p style="color:#888;font-size:13px;margin:4px 0 0">Elite Video Editing Agency</p>
           </div>
 
           <h2 style="color:#fff;font-size:22px;margin:0 0 12px">Hey ${name}, we received your message! 👋</h2>
           <p style="color:#bbb;line-height:1.7;margin:0 0 24px">
-            Thanks for reaching out to EditIV. We'll review your details and get back to you
+            Thanks for reaching out to EDiTiV. We'll review your details and get back to you
             within <strong style="color:#00ff9c">24 hours</strong>. In the meantime, feel free to
             check out our work below.
           </p>
@@ -89,7 +89,7 @@ module.exports = async (req, res) => {
           </div>
 
           <p style="color:#444;font-size:12px;text-align:center;border-top:1px solid #1a1a1a;padding-top:20px;margin:0">
-            © ${new Date().getFullYear()} EditIV. All Rights Reserved. &nbsp;|&nbsp;
+            © ${new Date().getFullYear()} EDiTiV. All Rights Reserved. &nbsp;|&nbsp;
             <a href="https://editiv.com" style="color:#00ff9c;text-decoration:none">editiv.com</a>
           </p>
         </div>

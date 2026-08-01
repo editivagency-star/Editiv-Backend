@@ -41,6 +41,8 @@ const deleteInvoice = require('../AdminSideModule/deleteInvoice');
 // ClientSideModule (public)
 const getPortfolio = require('../ClientSideModule/getPortfolio');
 const createBooking = require('../ClientSideModule/createBooking');
+const sendOtp = require('../ClientSideModule/sendOtp');
+const verifyOtp = require('../ClientSideModule/verifyOtp');
 
 // Client Portal Modules
 const clientLogin = require('../ClientSideModule/clientLogin');
@@ -64,10 +66,13 @@ routes.post('/admin/create', createAdmin);
 routes.post('/admin/login', adminLogin);
 
 
-/* ===== FOLDERS ===== */
+/* ===== FOLDERS & BOOKINGS & OTP ===== */
 
 routes.get('/folders', getFolders); // public
 routes.post('/booking', createBooking);
+routes.post('/send-otp', sendOtp);
+routes.post('/verify-otp', verifyOtp);
+
 routes.post('/admin/folder', auth, upload.single("image"), addFolder);
 routes.put('/admin/folder/:id', auth, upload.single("image"), updateFolder);
 routes.delete('/admin/folder/:id', auth, deleteFolder);

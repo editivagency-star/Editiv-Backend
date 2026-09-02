@@ -90,6 +90,14 @@ const invoiceSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    advancePayment: {
+      type: Number,
+      default: 0,
+    },
+    duePayment: {
+      type: Number,
+      default: 0,
+    },
     notes: {
       type: String,
       default: "50% of the total service fee must be paid before the work starts.\nOne dedicated social media manager will handle and manage your social media accounts.\nRegular monitoring and optimization of Meta (Facebook & Instagram) ad campaigns will be done.\nThe advertising budget is not included in the service fee and must be paid separately by the client.",

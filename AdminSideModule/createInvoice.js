@@ -20,6 +20,8 @@ module.exports = async (req, res) => {
       subtotal,
       tax,
       grandTotal,
+      advancePayment,
+      duePayment,
       notes,
     } = req.body;
 
@@ -54,6 +56,10 @@ module.exports = async (req, res) => {
     const finalSubtotal = subtotal !== undefined ? subtotal : computedSubtotal;
     const finalTax = tax !== undefined ? tax : 0;
     const finalGrandTotal = grandTotal !== undefined ? grandTotal : (finalSubtotal + finalTax);
+    const finalAdvancePayment = advancePayment !== undefined ? Number(advancePayment) || 0 : 0;
+    const finalDuePayment = duePayment !== undefined
+      ? Number(duePayment) || 0
+      : (type === "invoice" ? Math.max(0, finalGrandTotal - finalAdvancePayment) : 0);
 
     const invoice = await Invoice.create({
       invoiceNumber,
@@ -73,6 +79,8 @@ module.exports = async (req, res) => {
       subtotal: finalSubtotal,
       tax: finalTax,
       grandTotal: finalGrandTotal,
+      advancePayment: finalAdvancePayment,
+      duePayment: finalDuePayment,
       notes,
       createdBy: req.admin?.id || null,
     });
